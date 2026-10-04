@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fredd Tur | Paquetes a las playas de Santa Catarina</title>
+  <meta name="description" content="Paquetes armados con pasajes aéreos y terrestres, alojamiento y traslados a Garopaba, Praia do Rosa, Ferrugem, Canasvieiras, Jurerê y Praia dos Ingleses.">
+  <meta name="theme-color" content="#0b3326">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Íconos y logo reutilizables (se usan con <use href="#id">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="logo-mark" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="30" fill="#fff" stroke="currentColor" stroke-width="2"/>
+      <circle cx="30" cy="22" r="8" fill="#f7c948"/>
+      <path d="M30 8v4M18 12l3 3M42 12l-3 3M14 22h4M46 22h-4" stroke="#f7c948" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M14 46l12-18 8 10 6-8 10 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M14 51q4-3 9 0t9 0 9 0 9 0" fill="none" stroke="#4cc3e6" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path fill="currentColor" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><path fill="currentColor" d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm9 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM18 11H6V6h12v5z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path fill="currentColor" d="M9 8.2c.2-.4.6-.4.9-.4l.5 1.2c-.2.5-.6.7-.6.9 0 .4 1 1.6 2.1 2.1.3.1.5-.3.9-.7l1.2.6c0 .5-.3 1.1-.9 1.3-.7.3-2-.1-3.4-1.4-1.3-1.3-1.9-2.6-1.7-3.4.1-.3.3-.5.5-.6z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="10.5" r="1.6"/></g></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.4 3 8 7 10 4-2 7-5.6 7-10V6z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M2 10q2.5-3 5 0t5 0 5 0 5 0M2 16q2.5-3 5 0t5 0 5 0 5 0"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></g></symbol>
+    <symbol id="i-fork" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v5a2 2 0 0 0 4 0V3M7 3v18M17 3c-2 2-3 5-3 8h3v10"/></g></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 6 12h4l-5 7h14l-5-7h4z"/><path d="M12 19v3"/></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></g></symbol>
+  </defs>
+</svg>
+
+<a class="saltar" href="#destinos">Saltar al contenido</a>
+
+<div class="anuncio">
+  <p>Pasajes aéreos y terrestres a Santa Catarina · <a data-wa="general" href="#contacto">Cotizá por WhatsApp</a></p>
+</div>
+
+<header class="topbar" id="inicio">
+  <div class="wrap topbar__in">
+    <a class="brand" href="#inicio" aria-label="Fredd Tur, inicio">
+      <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="brand__txt">
+        <b>FREDD <i>•</i> TUR</b>
+        <small>Viaje · Playa · Excursiones · Experiencias</small>
+      </span>
+    </a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <svg aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="#destinos">Destinos</a>
+      <a href="#paquetes">Paquetes</a>
+      <a href="#traslados">Traslados</a>
+      <a href="#preguntas">Preguntas</a>
+      <a class="btn btn--wa btn--chico" data-wa="general" href="#contacto">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero__in">
+      <h1 id="h1">Playas de <span class="hero__resalte">Santa Catarina</span></h1>
+      <p class="hero__lema">con pasajes, alojamiento y traslados incluidos</p>
+      <p class="hero__sub">Fredd Tur arma tu paquete de punta a punta: avión o bus, posada u hotel, y traslado en trafic.</p>
+      <ul class="pills">
+        <li>Desde 2007 en la zona</li>
+        <li>Pasajes aéreos y terrestres</li>
+        <li>Traslados propios</li>
+        <li>Atención por WhatsApp</li>
+      </ul>
+      <div class="hero__cta">
+        <a class="btn btn--sol" href="#paquetes">Ver paquetes</a>
+        <a class="btn btn--wa" data-wa="general" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg>Hablar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="atajos__tit">Lo más buscado <span>· ir directo al grano</span></p>
+      <ul class="atajos" id="atajos"></ul>
+    </div>
+  </section>
+
+  <!-- ARMAMOS EL VIAJE POR PASOS -->
+  <section class="seccion" id="pasos" aria-labelledby="pasosTitulo">
+    <div class="wrap">
+      <header class="seccion__head seccion__head--centro">
+        <p class="eyebrow">Vos elegís</p>
+        <h2 id="pasosTitulo">¿Con qué paso te ayudamos?</h2>
+        <p>Armamos el viaje completo o solo la parte que necesitás.</p>
+      </header>
+      <ol class="pasos4">
+        <li>
+          <span class="paso__n">1</span>
+          <svg class="paso__ico" aria-hidden="true"><use href="#i-plane"/></svg>
+          <h3>Pasaje aéreo o en bus</h3>
+          <p>Volá a Florianópolis o viajá por tierra desde Argentina.</p>
+          <a class="enlace" data-wa="pasaje" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li>
+          <span class="paso__n">2</span>
+          <svg class="paso__ico" aria-hidden="true"><use href="#i-bus"/></svg>
+          <h3>Traslado en trafic</h3>
+          <p>Te buscamos en el aeropuerto o la terminal y te llevamos al alojamiento.</p>
+          <a class="enlace" data-wa="traslado" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li>
+          <span class="paso__n">3</span>
+          <svg class="paso__ico" aria-hidden="true"><use href="#i-bed"/></svg>
+          <h3>Alojamiento</h3>
+          <p>Posadas y hoteles de la región, según tu playa y tu presupuesto.</p>
+          <a class="enlace" data-wa="alojamiento" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+        <li>
+          <span class="paso__n">4</span>
+          <svg class="paso__ico" aria-hidden="true"><use href="#i-compass"/></svg>
+          <h3>Excursiones</h3>
+          <p>Paseos por la zona para aprovechar cada día del viaje.</p>
+          <a class="enlace" data-wa="excursion" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DESTINOS -->
+  <section class="seccion seccion--arena" id="destinos" aria-labelledby="destTitulo">
+    <div class="wrap">
+      <header class="seccion__head">
+        <p class="eyebrow">Destinos</p>
+        <h2 id="destTitulo">Elegí tu playa</h2>
+        <p>Costa sur de Santa Catarina y norte de Florianópolis. Tocá una playa para ver las modalidades y pedir tu cotización.</p>
+      </header>
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por zona"></div>
+      <div class="grid-destinos" id="gridDestinos"></div>
+    </div>
+  </section>
+
+  <!-- PAQUETES -->
+  <section class="seccion" id="paquetes" aria-labelledby="paqTitulo">
+    <div class="wrap">
+      <header class="seccion__head">
+        <p class="eyebrow">Paquetes armados</p>
+        <h2 id="paqTitulo">Tres formas de llegar</h2>
+        <p>Elegí cómo viajar. Alojamiento y traslados se suman a cualquiera de las tres, y las excursiones son opcionales.</p>
+      </header>
+      <div class="grid-fichas" id="gridModos"></div>
+      <p class="nota">Paquetes modelo de 7 noches. Las salidas, los cupos y las tarifas se confirman por WhatsApp según la fecha de viaje.</p>
+    </div>
+  </section>
+
+  <!-- POR QUÉ SANTA CATARINA -->
+  <section class="seccion seccion--arena" aria-labelledby="porqueSC">
+    <div class="wrap">
+      <header class="seccion__head seccion__head--centro">
+        <p class="eyebrow">Por qué Santa Catarina</p>
+        <h2 id="porqueSC">Un destino completo para cualquier viaje</h2>
+        <p>Del surf de la costa sur a las aguas calmas del norte de la isla.</p>
+      </header>
+      <ul class="porque">
+        <li><svg aria-hidden="true"><use href="#i-sun"/></svg>Playas para todos los gustos</li>
+        <li><svg aria-hidden="true"><use href="#i-wave"/></svg>Olas y surf en la costa sur</li>
+        <li><svg aria-hidden="true"><use href="#i-users"/></svg>Aguas calmas para ir en familia</li>
+        <li><svg aria-hidden="true"><use href="#i-compass"/></svg>Ballenas franca de invierno a primavera</li>
+        <li><svg aria-hidden="true"><use href="#i-fork"/></svg>Gastronomía de mar</li>
+        <li><svg aria-hidden="true"><use href="#i-plane"/></svg>Aeropuerto de Florianópolis cerca</li>
+        <li><svg aria-hidden="true"><use href="#i-bus"/></svg>Se llega por tierra desde Argentina</li>
+        <li><svg aria-hidden="true"><use href="#i-tree"/></svg>Naturaleza y senderos</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TRASLADOS -->
+  <section class="seccion seccion--traslado" id="traslados" aria-labelledby="trasTitulo">
+    <div class="wrap traslados">
+      <div class="traslados__txt">
+        <p class="eyebrow eyebrow--claro">Operación propia</p>
+        <h2 id="trasTitulo">Traslados y excursiones en trafic</h2>
+        <p>Buscamos a tus pasajeros en aeropuertos y terminales de ómnibus y los llevamos a Florianópolis, Imbituba, Garopaba y Paulo Lopes. También armamos excursiones por la zona.</p>
+        <a class="btn btn--sol" data-wa="traslado" href="#contacto">Cotizar un traslado</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUÉ FREDD TUR -->
+  <section class="seccion" aria-labelledby="porqueFT">
+    <div class="wrap">
+      <header class="seccion__head seccion__head--centro">
+        <p class="eyebrow">Por qué Fredd Tur</p>
+        <h2 id="porqueFT">Un solo contacto para todo el viaje</h2>
+        <p>Tu pasaje, tu alojamiento y tu traslado con la misma empresa.</p>
+      </header>
+      <ul class="valores">
+        <li>
+          <svg aria-hidden="true"><use href="#i-pin"/></svg>
+          <h3>Operación en destino</h3>
+          <p>Nuestras trafics te esperan en el aeropuerto o la terminal. Trabajamos en la zona desde 2007.</p>
+        </li>
+        <li>
+          <svg aria-hidden="true"><use href="#i-bed"/></svg>
+          <h3>Posadas y hoteles aliados</h3>
+          <p>Armamos tu paquete con alojamientos de la región con los que ya trabajamos.</p>
+        </li>
+        <li>
+          <svg aria-hidden="true"><use href="#i-plane"/></svg>
+          <h3>Aéreo y terrestre</h3>
+          <p>Avión, bus o los dos: te proponemos la combinación que mejor te queda.</p>
+        </li>
+        <li>
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>
+          <h3>Atención por WhatsApp</h3>
+          <p>Escribinos y te pasamos opciones y tarifas para tus fechas.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMPRESA REAL -->
+  <section class="seccion seccion--arena" aria-labelledby="realTitulo">
+    <div class="wrap confianza">
+      <div>
+        <p class="eyebrow">Una empresa real</p>
+        <h2 id="realTitulo">Con sede en Praia do Rosa</h2>
+        <p>Si vas a viajar, queremos que sepas con quién tratás.</p>
+      </div>
+      <ul class="confianza__lista">
+        <li><svg aria-hidden="true"><use href="#i-shield"/></svg><span><b>Empresa registrada</b><br><span id="cfRazon"></span></span></li>
+        <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span><b>Sede en destino</b><br><span id="cfSede"></span></span></li>
+        <li><svg aria-hidden="true"><use href="#i-wa"/></svg><span><b>Contacto directo</b><br>Por WhatsApp o mail, con personas de la zona.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section class="sobre" aria-labelledby="sobreTitulo">
+    <div class="sobre__foto" role="img" aria-label="Costa de Santa Catarina"></div>
+    <div class="sobre__txt">
+      <p class="eyebrow">Vivimos lo que vendemos</p>
+      <h2 id="sobreTitulo">Tu amigo de Praia do Rosa</h2>
+      <p>Praia do Rosa es nuestra casa. Armamos tu viaje con el conocimiento de quienes viven y trabajan en la costa sur de Santa Catarina, y te acompañamos desde que llegás hasta que te vas.</p>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section class="seccion" id="preguntas" aria-labelledby="faqTitulo">
+    <div class="wrap faq">
+      <header class="seccion__head">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2 id="faqTitulo">¿Dudas? Te respondemos</h2>
+      </header>
+      <div class="faq__lista">
+        <details>
+          <summary>¿Qué incluyen los paquetes?</summary>
+          <p>Cada paquete combina el pasaje (aéreo, bus o los dos), el traslado en trafic y el alojamiento. Las excursiones se pueden sumar. El detalle exacto se confirma en la cotización.</p>
+        </details>
+        <details>
+          <summary>¿Cómo se llega a Santa Catarina?</summary>
+          <p>En avión hasta el aeropuerto de Florianópolis, en bus desde Argentina o combinando los dos. Te armamos la opción según tu ciudad de salida y tus fechas.</p>
+        </details>
+        <details>
+          <summary>¿Puedo armar mi propio paquete?</summary>
+          <p>Sí. Contanos qué necesitás (pasaje, traslado, alojamiento o excursiones) y cotizamos lo que falta.</p>
+        </details>
+        <details>
+          <summary>¿Cómo se paga?</summary>
+          <p>Las formas de pago se coordinan por WhatsApp al momento de cotizar.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si tengo que cambiar o cancelar?</summary>
+          <p>Las condiciones dependen de cada servicio (pasaje, alojamiento, traslado) y se informan al cotizar.</p>
+        </details>
+        <details>
+          <summary>¿Trabajan con agencias de viajes?</summary>
+          <p>Sí. Escribinos por WhatsApp y coordinamos.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="cta" aria-labelledby="ctaTitulo">
+    <div class="wrap cta__in">
+      <p class="eyebrow eyebrow--claro">¿Listo para Santa Catarina?</p>
+      <h2 id="ctaTitulo">Tu viaje empieza con un hola</h2>
+      <p>Contanos cuándo viajás y con quién. Nosotros armamos el resto.</p>
+      <a class="btn btn--wa btn--grande" data-wa="general" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- CONTACTO / PIE -->
+<footer class="pie" id="contacto">
+  <div class="wrap pie__in">
+    <div class="pie__col">
+      <a class="brand brand--claro" href="#inicio" aria-label="Fredd Tur, volver arriba">
+        <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="brand__txt"><b>FREDD <i>•</i> TUR</b></span>
+      </a>
+      <p class="pie__razon" id="pieRazon"></p>
+    </div>
+    <div class="pie__col">
+      <h2 class="pie__tit">Contacto</h2>
+      <ul class="pie__lista" id="pieContacto"></ul>
+    </div>
+    <div class="pie__col">
+      <h2 class="pie__tit">Seguinos</h2>
+      <ul class="pie__lista" id="pieRedes"></ul>
+    </div>
+  </div>
+  <p class="pie__copy wrap" id="pieCopy"></p>
+</footer>
+
+<!-- DETALLE DE DESTINO -->
+<dialog class="modal" id="detalle" aria-labelledby="dTitulo"></dialog>
+
+<script src="app.js" defer></script>
+</body>
+</html>
