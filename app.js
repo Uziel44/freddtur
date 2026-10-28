@@ -1,5 +1,6 @@
 /* Fredd Tur — MVP web estática.
    Todo lo que se edita (contacto, destinos, modalidades de paquete) está en la sección DATOS EDITABLES.
+   Los textos (español y portugués) están en i18n.js: ahí se cambia lo que dice cada destino, paquete y mensaje de WhatsApp.
    Las fotos son de Unsplash (banco libre): se guardan solo como ID y se arma la URL en foto().
    Para usar fotos propias, reemplazá el ID por una URL completa que empiece con "http". */
 (() => {
@@ -22,102 +23,25 @@
 
   const NOCHES = 7;                        // duración de los paquetes modelo
 
-  // Mensajes que abren WhatsApp. La clave se usa en los enlaces con data-wa="clave" del HTML.
-  const MENSAJES = {
-    general: 'Hola Fredd Tur! Quiero consultar por un paquete a Santa Catarina.',
-    pasaje: 'Hola Fredd Tur! Quiero consultar por pasajes (aéreo o en bus) a Santa Catarina.',
-    traslado: 'Hola Fredd Tur! Quiero cotizar un traslado en trafic.',
-    alojamiento: 'Hola Fredd Tur! Quiero consultar por alojamiento en Santa Catarina.',
-    excursion: 'Hola Fredd Tur! Quiero consultar por excursiones en la zona.'
-  };
+  // Los mensajes que abren WhatsApp están en i18n.js ('msg.general', 'msg.pasaje', ...).
+  // La clave se usa en los enlaces con data-wa="clave" del HTML; si no existe, se usa 'general'.
+  const MENSAJES = ['general', 'pasaje', 'traslado', 'alojamiento', 'excursion'];
 
-  const ZONAS = {
-    sur: 'Costa sur de SC',
-    norte: 'Norte de Florianópolis'
-  };
-
+  // incluye = cantidad de ítems de la lista "incluye" (sus textos son 'modo.<id>.inc1', 'inc2', ... en i18n.js)
   const MODALIDADES = [
-    {
-      id: 'aereo',
-      nombre: 'Aéreo + traslado',
-      corto: 'Aéreo',
-      iconos: ['i-plane'],
-      foto: '1527605158555-853f200063e9',
-      resumen: 'Volás a Florianópolis y te esperamos en la trafic.',
-      incluye: [
-        'Pasaje aéreo a Florianópolis',
-        'Traslado del aeropuerto al alojamiento',
-        'Alojamiento en posada u hotel de la zona',
-        'Excursiones opcionales'
-      ]
-    },
-    {
-      id: 'bus',
-      nombre: 'Bus + traslado',
-      corto: 'Bus',
-      iconos: ['i-bus'],
-      foto: '1786545638379-2c556a8ab23b',
-      resumen: 'Viajás por tierra desde Argentina y te llevamos hasta la puerta.',
-      incluye: [
-        'Pasaje en bus de larga distancia',
-        'Traslado desde la terminal al alojamiento',
-        'Alojamiento en posada u hotel de la zona',
-        'Excursiones opcionales'
-      ]
-    },
-    {
-      id: 'mixto',
-      nombre: 'Aéreo + bus',
-      corto: 'Aéreo + bus',
-      iconos: ['i-plane', 'i-bus'],
-      foto: '1639616322896-357c8e5a449a',
-      resumen: 'Ida en avión y vuelta en bus, o al revés.',
-      incluye: [
-        'Un tramo en avión y el otro en bus',
-        'Traslados de llegada y de salida',
-        'Alojamiento en posada u hotel de la zona',
-        'Excursiones opcionales'
-      ]
-    }
+    { id: 'aereo', iconos: ['i-plane'], foto: '1527605158555-853f200063e9', incluye: 4 },
+    { id: 'bus', iconos: ['i-bus'], foto: '1786545638379-2c556a8ab23b', incluye: 4 },
+    { id: 'mixto', iconos: ['i-plane', 'i-bus'], foto: '1639616322896-357c8e5a449a', incluye: 4 }
   ];
 
+  // El lema y la descripción de cada destino están en i18n.js ('dest.<id>.lema' y 'dest.<id>.desc').
   const DESTINOS = [
-    {
-      id: 'garopaba', nombre: 'Garopaba', zona: 'sur',
-      lema: 'Surf, ballenas y un centro con vida propia',
-      descripcion: 'Playas de mar abierto en la costa sur de Santa Catarina, con surf y avistaje de ballenas franca entre el invierno y la primavera. El centro tiene restaurantes, comercios y vida nocturna.',
-      foto: '1687783313981-8a016dc28ed4', colores: ['#4cc3e6', '#0b5f7a']
-    },
-    {
-      id: 'praia-do-rosa', nombre: 'Praia do Rosa', zona: 'sur',
-      lema: 'Naturaleza, surf y pousadas entre colinas',
-      descripcion: 'Playa de mar abierto rodeada de colinas, en el municipio de Imbituba. Ambiente tranquilo, pousadas, surf y ballenas en temporada. Es la zona donde está la base de Fredd Tur.',
-      foto: '1725378531698-fbc644a0f0f8', colores: ['#3f9d73', '#145139']
-    },
-    {
-      id: 'ferrugem', nombre: 'Ferrugem', zona: 'sur',
-      lema: 'Una playa amplia con olas y bares sobre la arena',
-      descripcion: 'Larga playa de arena clara en Garopaba, con mar abierto, escuelas de surf y bares sobre la costa.',
-      foto: '1638644447679-60d208ae5875', colores: ['#f7c948', '#b5791a']
-    },
-    {
-      id: 'canasvieiras', nombre: 'Canasvieiras', zona: 'norte',
-      lema: 'Aguas calmas y servicios para toda la familia',
-      descripcion: 'Playa de aguas tranquilas en el norte de la isla de Florianópolis, con mucha oferta de alojamiento, restaurantes y comercios. Muy elegida por turistas argentinos.',
-      foto: '1669761151628-20999598357a', colores: ['#5ed0ea', '#0b7a9e']
-    },
-    {
-      id: 'jurere', nombre: 'Jurerê', zona: 'norte',
-      lema: 'Playa tranquila, beach clubs y buena mesa',
-      descripcion: 'Playa de aguas calmas y arena clara en el norte de la isla de Florianópolis, conocida por sus beach clubs y su gastronomía.',
-      foto: '1725378531790-dc2b9cf5a647', colores: ['#79c9a0', '#1b6a4a']
-    },
-    {
-      id: 'ingleses', nombre: 'Praia dos Ingleses', zona: 'norte',
-      lema: 'Extensa, con todos los servicios',
-      descripcion: 'Extensa playa de arena clara en el norte de la isla de Florianópolis, con gran variedad de alojamiento, gastronomía y comercios.',
-      foto: '1681157865251-2155d60882c0', colores: ['#4cc3e6', '#1b6a4a']
-    }
+    { id: 'garopaba', nombre: 'Garopaba', zona: 'sur', foto: '1687783313981-8a016dc28ed4', colores: ['#4cc3e6', '#0b5f7a'] },
+    { id: 'praia-do-rosa', nombre: 'Praia do Rosa', zona: 'sur', foto: '1725378531698-fbc644a0f0f8', colores: ['#3f9d73', '#145139'] },
+    { id: 'ferrugem', nombre: 'Ferrugem', zona: 'sur', foto: '1638644447679-60d208ae5875', colores: ['#f7c948', '#b5791a'] },
+    { id: 'canasvieiras', nombre: 'Canasvieiras', zona: 'norte', foto: '1669761151628-20999598357a', colores: ['#5ed0ea', '#0b7a9e'] },
+    { id: 'jurere', nombre: 'Jurerê', zona: 'norte', foto: '1725378531790-dc2b9cf5a647', colores: ['#79c9a0', '#1b6a4a'] },
+    { id: 'ingleses', nombre: 'Praia dos Ingleses', zona: 'norte', foto: '1681157865251-2155d60882c0', colores: ['#4cc3e6', '#1b6a4a'] }
   ];
 
   // Foto del atajo "Traslados" (la sección de traslados usa otra, definida en styles.css).
@@ -129,6 +53,14 @@
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  // Texto en el idioma actual (ver i18n.js). Sin i18n.js devuelve la clave, así se nota enseguida.
+  const t = (clave, vars) => (window.I18N ? window.I18N.t(clave, vars) : clave);
+
+  const txtModo = (m, campo) => t(`modo.${m.id}.${campo}`);
+  const incluidos = (m) => Array.from({ length: m.incluye }, (_, i) => t(`modo.${m.id}.inc${i + 1}`));
+  const txtDestino = (d, campo) => t(`dest.${d.id}.${campo}`);
+  const nombreZona = (zona) => t(`zona.${zona}`);
 
   const foto = (id, ancho = 900) =>
     id.startsWith('http') ? id : `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=75&w=${ancho}`;
@@ -143,6 +75,9 @@
   const buscarDestino = (id) => DESTINOS.find((d) => d.id === id);
   const buscarModalidad = (id) => MODALIDADES.find((m) => m.id === id);
 
+  // Zona elegida en los filtros: se recuerda para no perderla al cambiar de idioma.
+  let zonaActual = 'todas';
+
   /* =====================================================================
      RENDER DE SECCIONES
      ===================================================================== */
@@ -150,8 +85,8 @@
   function renderAtajos() {
     const items = [
       ...DESTINOS.map((d) => ({ attr: `data-destino="${d.id}"`, texto: d.nombre, foto: d.foto })),
-      ...MODALIDADES.map((m) => ({ attr: 'data-ir="#paquetes"', texto: m.corto, foto: m.foto })),
-      { attr: 'data-ir="#traslados"', texto: 'Traslados', foto: FOTO_TRASLADO }
+      ...MODALIDADES.map((m) => ({ attr: 'data-ir="#paquetes"', texto: txtModo(m, 'corto'), foto: m.foto })),
+      { attr: 'data-ir="#traslados"', texto: t('atajo.traslados'), foto: FOTO_TRASLADO }
     ];
     $('#atajos').innerHTML = items.map((it) => `
       <li class="atajo">
@@ -163,39 +98,39 @@
   }
 
   function renderFiltros() {
-    const opciones = [['todas', 'Todas'], ['sur', ZONAS.sur], ['norte', ZONAS.norte]];
-    $('#filtros').innerHTML = opciones.map(([clave, texto], i) =>
-      `<button class="filtro" type="button" data-zona="${clave}" aria-pressed="${i === 0}">${texto}</button>`).join('');
+    const opciones = [['todas', t('zona.todas')], ['sur', t('zona.sur')], ['norte', t('zona.norte')]];
+    $('#filtros').innerHTML = opciones.map(([clave, texto]) =>
+      `<button class="filtro" type="button" data-zona="${clave}" aria-pressed="${clave === zonaActual}">${texto}</button>`).join('');
   }
 
-  function renderDestinos(zona = 'todas') {
+  function renderDestinos(zona = zonaActual) {
     const lista = DESTINOS.filter((d) => zona === 'todas' || d.zona === zona);
     $('#gridDestinos').innerHTML = lista.map((d) => `
       <article class="dest" style="${estiloDestino(d, 800)}">
-        <button class="dest__btn" type="button" data-destino="${d.id}" aria-label="Ver detalle de ${d.nombre}">
-          <span class="dest__zona">${ZONAS[d.zona]}</span>
+        <button class="dest__btn" type="button" data-destino="${d.id}" aria-label="${t('ui.aria_detalle', { n: d.nombre })}">
+          <span class="dest__zona">${nombreZona(d.zona)}</span>
           <span class="dest__nombre">${d.nombre}</span>
-          <span class="dest__lema">${d.lema}</span>
-          <span class="dest__ver">Ver detalle →</span>
+          <span class="dest__lema">${txtDestino(d, 'lema')}</span>
+          <span class="dest__ver">${t('ui.ver_detalle')}</span>
         </button>
       </article>`).join('');
   }
 
   function renderModalidades() {
     $('#gridModos').innerHTML = MODALIDADES.map((m) => {
-      const texto = `Hola Fredd Tur! Quiero cotizar un paquete "${m.nombre}" de ${NOCHES} noches a Santa Catarina.`;
+      const texto = t('msg.paquete', { m: txtModo(m, 'nombre'), n: NOCHES });
       return `
       <article class="ficha">
         <div class="ficha__foto" style="--foto:url('${foto(m.foto, 800)}')">
-          <span class="ficha__tag">Paquete · ${NOCHES} noches</span>
+          <span class="ficha__tag">${t('ui.tag', { n: NOCHES })}</span>
           <span class="ficha__iconos">${m.iconos.map(icono).join('')}</span>
         </div>
         <div class="ficha__body">
-          <h3>${m.nombre}</h3>
-          <p class="ficha__resumen">${m.resumen}</p>
-          <ul class="lista-check">${m.incluye.map((i) => `<li>${icono('i-check')}${i}</li>`).join('')}</ul>
-          <div class="ficha__precio"><small>Desde</small><b>Consultá tarifa</b></div>
-          <a class="btn btn--wa btn--bloque" href="${waLink(texto)}" target="_blank" rel="noopener">${icono('i-wa')}Cotizar por WhatsApp</a>
+          <h3>${txtModo(m, 'nombre')}</h3>
+          <p class="ficha__resumen">${txtModo(m, 'resumen')}</p>
+          <ul class="lista-check">${incluidos(m).map((i) => `<li>${icono('i-check')}${i}</li>`).join('')}</ul>
+          <div class="ficha__precio"><small>${t('ui.desde')}</small><b>${t('ui.tarifa')}</b></div>
+          <a class="btn btn--wa btn--bloque" href="${waLink(texto)}" target="_blank" rel="noopener">${icono('i-wa')}${t('ui.cotizar_wa')}</a>
         </div>
       </article>`;
     }).join('');
@@ -208,7 +143,7 @@
     $('#cfSede').textContent = c.ubicacion.replace(/ · /g, ', ');
 
     const filas = [
-      `<li><a href="${waLink(MENSAJES.general)}" target="_blank" rel="noopener">${icono('i-wa')}${c.whatsappVisible}</a></li>`,
+      `<li><a href="${waLink(t('msg.general'))}" target="_blank" rel="noopener">${icono('i-wa')}${c.whatsappVisible}</a></li>`,
       ...c.emails.map((e) => `<li><a href="mailto:${e}">${icono('i-mail')}${e}</a></li>`)
     ];
     $('#pieContacto').innerHTML = filas.join('');
@@ -216,15 +151,16 @@
     const redes = [['Instagram', c.instagram], ['Facebook', c.facebook]]
       .filter(([, url]) => url)
       .map(([nombre, url]) => `<li><a href="${url}" target="_blank" rel="noopener">${nombre}</a></li>`);
-    $('#pieRedes').innerHTML = redes.length ? redes.join('') : '<li class="pie__vacio">Próximamente</li>';
+    $('#pieRedes').innerHTML = redes.length ? redes.join('') : `<li class="pie__vacio">${t('ui.proximamente')}</li>`;
 
-    $('#pieCopy').textContent = `© ${new Date().getFullYear()} ${c.razonSocial} Fotos de muestra: Unsplash.`;
+    $('#pieCopy').textContent = t('ui.pie_copy', { y: new Date().getFullYear(), r: c.razonSocial });
   }
 
   // Enlaces del HTML con data-wa="clave": abren WhatsApp con el mensaje de esa clave.
   function enlazarWhatsApp() {
     $$('[data-wa]').forEach((a) => {
-      a.href = waLink(MENSAJES[a.dataset.wa] || MENSAJES.general);
+      const clave = MENSAJES.includes(a.dataset.wa) ? a.dataset.wa : 'general';
+      a.href = waLink(t(`msg.${clave}`));
       a.target = '_blank';
       a.rel = 'noopener';
     });
@@ -243,35 +179,35 @@
 
     dlg.innerHTML = `
       <form method="dialog" class="modal__cerrar">
-        <button aria-label="Cerrar detalle">${icono('i-close')}</button>
+        <button aria-label="${t('ui.cerrar')}">${icono('i-close')}</button>
       </form>
       <header class="modal__head" style="${estiloDestino(d, 1100)}">
-        <span class="dest__zona">${ZONAS[d.zona]}</span>
+        <span class="dest__zona">${nombreZona(d.zona)}</span>
         <h2 id="dTitulo">${d.nombre}</h2>
-        <p>${d.lema}</p>
+        <p>${txtDestino(d, 'lema')}</p>
       </header>
       <div class="modal__body">
-        <p>${d.descripcion}</p>
+        <p>${txtDestino(d, 'desc')}</p>
         <fieldset class="modos">
-          <legend>Elegí la modalidad</legend>
+          <legend>${t('ui.modalidad')}</legend>
           ${MODALIDADES.map((m) => `
             <label class="modo-op">
               <input type="radio" name="modo" value="${m.id}" ${m.id === modoId ? 'checked' : ''}>
               <span class="modo-op__caja">
-                <span class="modo-op__t">${m.iconos.map(icono).join('')}${m.nombre}</span>
-                <span class="modo-op__r">${m.resumen}</span>
+                <span class="modo-op__t">${m.iconos.map(icono).join('')}${txtModo(m, 'nombre')}</span>
+                <span class="modo-op__r">${txtModo(m, 'resumen')}</span>
               </span>
             </label>`).join('')}
         </fieldset>
         <ul class="lista-check" id="dIncluye"></ul>
         <div class="campos">
-          <label>Pasajeros<input id="fPax" type="number" min="1" max="60" value="2" inputmode="numeric"></label>
-          <label>Salida desde<input id="fOrigen" type="text" maxlength="60" placeholder="Ej: Córdoba"></label>
-          <label>Mes de viaje<input id="fMes" type="month"></label>
-          <label class="campo--check"><input id="fAg" type="checkbox">Consulto como agencia</label>
+          <label>${t('ui.pax')}<input id="fPax" type="number" min="1" max="60" value="2" inputmode="numeric"></label>
+          <label>${t('ui.origen')}<input id="fOrigen" type="text" maxlength="60" placeholder="${t('ui.origen_ph')}"></label>
+          <label>${t('ui.mes')}<input id="fMes" type="month"></label>
+          <label class="campo--check"><input id="fAg" type="checkbox">${t('ui.agencia')}</label>
         </div>
-        <a class="btn btn--wa btn--bloque" id="dWa" href="#" target="_blank" rel="noopener">${icono('i-wa')}Pedir cotización por WhatsApp</a>
-        <p class="nota">Paquete modelo de ${NOCHES} noches. Las tarifas y los cupos se confirman por WhatsApp.</p>
+        <a class="btn btn--wa btn--bloque" id="dWa" href="#" target="_blank" rel="noopener">${icono('i-wa')}${t('ui.pedir')}</a>
+        <p class="nota">${t('ui.nota_modal', { n: NOCHES })}</p>
       </div>`;
 
     actualizarDetalle();
@@ -287,7 +223,7 @@
     if (!d || !marcado) return;
     const m = buscarModalidad(marcado.value);
 
-    $('#dIncluye', dlg).innerHTML = m.incluye.map((i) => `<li>${icono('i-check')}${i}</li>`).join('');
+    $('#dIncluye', dlg).innerHTML = incluidos(m).map((i) => `<li>${icono('i-check')}${i}</li>`).join('');
 
     const pax = Math.max(1, Math.min(60, parseInt($('#fPax', dlg).value, 10) || 1));
     const origen = $('#fOrigen', dlg).value.trim();
@@ -295,15 +231,15 @@
     const agencia = $('#fAg', dlg).checked;
 
     const lineas = [
-      'Hola Fredd Tur! Quiero cotizar un paquete.',
-      `Destino: ${d.nombre}`,
-      `Modalidad: ${m.nombre}`,
-      `Noches: ${NOCHES}`,
-      `Pasajeros: ${pax}`
+      t('msg.d.intro'),
+      t('msg.d.destino', { v: d.nombre }),
+      t('msg.d.modalidad', { v: txtModo(m, 'nombre') }),
+      t('msg.d.noches', { v: NOCHES }),
+      t('msg.d.pax', { v: pax })
     ];
-    if (origen) lineas.push(`Salida desde: ${origen}`);
-    if (mes) lineas.push(`Mes de viaje: ${mes}`);
-    lineas.push(`Consulto como: ${agencia ? 'agencia' : 'pasajero'}`);
+    if (origen) lineas.push(t('msg.d.origen', { v: origen }));
+    if (mes) lineas.push(t('msg.d.mes', { v: mes }));
+    lineas.push(t('msg.d.como', { v: t(agencia ? 'msg.d.agencia' : 'msg.d.pasajero') }));
 
     $('#dWa', dlg).href = waLink(lineas.join('\n'));
   }
@@ -323,12 +259,12 @@
     const cerrar = () => {
       menu.classList.remove('abierto');
       burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Abrir menú');
+      burger.setAttribute('aria-label', t('menu.open'));
     };
     burger.addEventListener('click', () => {
       const abierto = menu.classList.toggle('abierto');
       burger.setAttribute('aria-expanded', String(abierto));
-      burger.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
+      burger.setAttribute('aria-label', t(abierto ? 'menu.close' : 'menu.open'));
     });
     menu.addEventListener('click', (e) => { if (e.target.closest('a')) cerrar(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrar(); });
@@ -344,21 +280,28 @@
 
       const zona = e.target.closest('[data-zona]');
       if (zona) {
+        zonaActual = zona.dataset.zona;
         $$('.filtro').forEach((b) => b.setAttribute('aria-pressed', String(b === zona)));
-        renderDestinos(zona.dataset.zona);
+        renderDestinos(zonaActual);
       }
     });
   }
 
-  function iniciar() {
+  // Todo lo que arma este archivo se vuelve a dibujar en el idioma nuevo (el resto lo cambia i18n.js).
+  function dibujar() {
     renderAtajos();
     renderFiltros();
     renderDestinos();
     renderModalidades();
     renderPie();
     enlazarWhatsApp();
+  }
+
+  function iniciar() {
+    dibujar();
     iniciarMenu();
     iniciarClics();
+    document.addEventListener('i18n:change', dibujar);
   }
 
   iniciar();

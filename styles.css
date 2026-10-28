@@ -103,7 +103,7 @@ a { color: inherit; }
 .brand { display: inline-flex; align-items: center; gap: .65rem; text-decoration: none; color: var(--selva); }
 .brand__mark { width: 46px; height: 46px; flex: none; }
 .brand__txt { display: flex; flex-direction: column; line-height: 1.1; }
-.brand__txt b { font-size: 1.25rem; font-weight: 800; letter-spacing: .06em; }
+.brand__txt b { font-size: 1.25rem; font-weight: 800; letter-spacing: .06em; white-space: nowrap; }
 .brand__txt i { font-style: normal; color: var(--mar-700); }
 .brand__txt small { font-size: .62rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--suave); }
 .brand--claro { color: #fff; }
@@ -115,6 +115,15 @@ a { color: inherit; }
 
 .burger { display: none; width: 48px; height: 48px; border: 0; border-radius: 12px; background: transparent; color: var(--selva); cursor: pointer; }
 .burger svg { width: 28px; height: 28px; }
+
+/* ---------- Selector de idioma (ES | PT) ---------- */
+.lang { display: inline-flex; gap: 2px; padding: 3px; margin-left: auto; border: 1px solid var(--linea); border-radius: 999px; background: var(--arena); }
+.lang__btn {
+  min-width: 38px; height: 34px; padding: 0 .7rem; border: 0; border-radius: 999px; background: transparent;
+  color: var(--selva-900); font: inherit; font-weight: 700; font-size: .8rem; letter-spacing: .04em; cursor: pointer;
+}
+.lang__btn:hover { background: var(--linea); }
+.lang__btn[aria-pressed="true"] { background: var(--selva); color: #fff; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -392,6 +401,7 @@ a { color: inherit; }
 
 /* ---------- Pantallas chicas ---------- */
 @media (max-width: 1000px) {
+  .brand__txt small { display: none; }
   .pasos4, .porque, .valores { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -417,11 +427,19 @@ a { color: inherit; }
 }
 
 @media (max-width: 520px) {
-  .brand__txt small { display: none; }
+  .brand__mark { width: 40px; height: 40px; }
+  .lang__btn { min-width: 32px; height: 30px; padding: 0 .5rem; font-size: .75rem; }
   .hero__cta .btn { width: 100%; }
   .campos { grid-template-columns: 1fr; }
   .modal__head { padding-inline: 1.2rem; }
   .modal__body { padding-inline: 1.2rem; }
+}
+
+@media (max-width: 380px) {
+  .topbar__in { gap: .5rem; }
+  .brand { gap: .45rem; }
+  .brand__txt b { font-size: 1.02rem; letter-spacing: .03em; }
+  .burger { width: 42px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
