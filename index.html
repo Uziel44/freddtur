@@ -44,31 +44,35 @@
   </defs>
 </svg>
 
-<a class="saltar" href="#destinos">Saltar al contenido</a>
+<a class="saltar" href="#destinos" data-i18n="saltar">Saltar al contenido</a>
 
 <div class="anuncio">
-  <p>Pasajes aéreos y terrestres a Santa Catarina · <a data-wa="general" href="#contacto">Cotizá por WhatsApp</a></p>
+  <p><span data-i18n="anuncio.txt">Pasajes aéreos y terrestres a Santa Catarina ·</span> <a data-wa="general" href="#contacto" data-i18n="anuncio.cta">Cotizá por WhatsApp</a></p>
 </div>
 
 <header class="topbar" id="inicio">
   <div class="wrap topbar__in">
-    <a class="brand" href="#inicio" aria-label="Fredd Tur, inicio">
+    <a class="brand" href="#inicio" aria-label="Fredd Tur, inicio" data-i18n-attr="aria-label:aria.inicio">
       <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
       <span class="brand__txt">
         <b>FREDD <i>•</i> TUR</b>
-        <small>Viaje · Playa · Excursiones · Experiencias</small>
+        <small data-i18n="brand.sub">Viaje · Playa · Excursiones · Experiencias</small>
       </span>
     </a>
+    <div class="lang" role="group" aria-label="Idioma" data-i18n-attr="aria-label:lang.group">
+      <button class="lang__btn" type="button" lang="es" data-lang="es" aria-label="Español" aria-pressed="true">ES</button>
+      <button class="lang__btn" type="button" lang="pt" data-lang="pt" aria-label="Português" aria-pressed="false">PT</button>
+    </div>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
       <svg aria-hidden="true"><use href="#i-menu"/></svg>
     </button>
-    <nav class="menu" id="menu" aria-label="Principal">
-      <a href="#destinos">Destinos</a>
-      <a href="#paquetes">Paquetes</a>
-      <a href="#traslados">Traslados</a>
-      <a href="#preguntas">Preguntas</a>
+    <nav class="menu" id="menu" aria-label="Principal" data-i18n-attr="aria-label:aria.principal">
+      <a href="#destinos" data-i18n="destinos">Destinos</a>
+      <a href="#paquetes" data-i18n="nav.paquetes">Paquetes</a>
+      <a href="#traslados" data-i18n="nav.traslados">Traslados</a>
+      <a href="#preguntas" data-i18n="nav.preguntas">Preguntas</a>
       <a class="btn btn--wa btn--chico" data-wa="general" href="#contacto">
-        <svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar
+        <svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="nav.cotizar">Cotizar</span>
       </a>
     </nav>
   </div>
@@ -79,22 +83,22 @@
   <!-- HERO -->
   <section class="hero" aria-labelledby="h1">
     <div class="wrap hero__in">
-      <h1 id="h1">Playas de <span class="hero__resalte">Santa Catarina</span></h1>
-      <p class="hero__lema">con pasajes, alojamiento y traslados incluidos</p>
-      <p class="hero__sub">Fredd Tur arma tu paquete de punta a punta: avión o bus, posada u hotel, y traslado en trafic.</p>
+      <h1 id="h1" data-i18n="hero.h1">Playas de <span class="hero__resalte">Santa Catarina</span></h1>
+      <p class="hero__lema" data-i18n="hero.lema">con pasajes, alojamiento y traslados incluidos</p>
+      <p class="hero__sub" data-i18n="hero.sub">Fredd Tur arma tu paquete de punta a punta: avión o bus, posada u hotel, y traslado en trafic.</p>
       <ul class="pills">
-        <li>Desde 2007 en la zona</li>
-        <li>Pasajes aéreos y terrestres</li>
-        <li>Traslados propios</li>
-        <li>Atención por WhatsApp</li>
+        <li data-i18n="pill.zona">Desde 2007 en la zona</li>
+        <li data-i18n="pill.pasajes">Pasajes aéreos y terrestres</li>
+        <li data-i18n="pill.traslados">Traslados propios</li>
+        <li data-i18n="atencion_wa">Atención por WhatsApp</li>
       </ul>
       <div class="hero__cta">
-        <a class="btn btn--sol" href="#paquetes">Ver paquetes</a>
-        <a class="btn btn--wa" data-wa="general" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg>Hablar por WhatsApp</a>
+        <a class="btn btn--sol" href="#paquetes" data-i18n="hero.ver">Ver paquetes</a>
+        <a class="btn btn--wa" data-wa="general" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="hero.wa">Hablar por WhatsApp</span></a>
       </div>
     </div>
     <div class="wrap">
-      <p class="atajos__tit">Lo más buscado <span>· ir directo al grano</span></p>
+      <p class="atajos__tit"><span data-i18n="atajos.tit">Lo más buscado</span> <span data-i18n="atajos.sub">· ir directo al grano</span></p>
       <ul class="atajos" id="atajos"></ul>
     </div>
   </section>
@@ -103,38 +107,38 @@
   <section class="seccion" id="pasos" aria-labelledby="pasosTitulo">
     <div class="wrap">
       <header class="seccion__head seccion__head--centro">
-        <p class="eyebrow">Vos elegís</p>
-        <h2 id="pasosTitulo">¿Con qué paso te ayudamos?</h2>
-        <p>Armamos el viaje completo o solo la parte que necesitás.</p>
+        <p class="eyebrow" data-i18n="pasos.eyebrow">Vos elegís</p>
+        <h2 id="pasosTitulo" data-i18n="pasos.h2">¿Con qué paso te ayudamos?</h2>
+        <p data-i18n="pasos.p">Armamos el viaje completo o solo la parte que necesitás.</p>
       </header>
       <ol class="pasos4">
         <li>
           <span class="paso__n">1</span>
           <svg class="paso__ico" aria-hidden="true"><use href="#i-plane"/></svg>
-          <h3>Pasaje aéreo o en bus</h3>
-          <p>Volá a Florianópolis o viajá por tierra desde Argentina.</p>
-          <a class="enlace" data-wa="pasaje" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <h3 data-i18n="paso1.h3">Pasaje aéreo o en bus</h3>
+          <p data-i18n="paso1.p">Volá a Florianópolis o viajá por tierra desde Argentina.</p>
+          <a class="enlace" data-wa="pasaje" href="#contacto"><span data-i18n="consultar">Consultar</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </li>
         <li>
           <span class="paso__n">2</span>
           <svg class="paso__ico" aria-hidden="true"><use href="#i-bus"/></svg>
-          <h3>Traslado en trafic</h3>
-          <p>Te buscamos en el aeropuerto o la terminal y te llevamos al alojamiento.</p>
-          <a class="enlace" data-wa="traslado" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <h3 data-i18n="paso2.h3">Traslado en trafic</h3>
+          <p data-i18n="paso2.p">Te buscamos en el aeropuerto o la terminal y te llevamos al alojamiento.</p>
+          <a class="enlace" data-wa="traslado" href="#contacto"><span data-i18n="consultar">Consultar</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </li>
         <li>
           <span class="paso__n">3</span>
           <svg class="paso__ico" aria-hidden="true"><use href="#i-bed"/></svg>
-          <h3>Alojamiento</h3>
-          <p>Posadas y hoteles de la región, según tu playa y tu presupuesto.</p>
-          <a class="enlace" data-wa="alojamiento" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <h3 data-i18n="paso3.h3">Alojamiento</h3>
+          <p data-i18n="paso3.p">Posadas y hoteles de la región, según tu playa y tu presupuesto.</p>
+          <a class="enlace" data-wa="alojamiento" href="#contacto"><span data-i18n="consultar">Consultar</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </li>
         <li>
           <span class="paso__n">4</span>
           <svg class="paso__ico" aria-hidden="true"><use href="#i-compass"/></svg>
-          <h3>Excursiones</h3>
-          <p>Paseos por la zona para aprovechar cada día del viaje.</p>
-          <a class="enlace" data-wa="excursion" href="#contacto">Consultar <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <h3 data-i18n="paso4.h3">Excursiones</h3>
+          <p data-i18n="paso4.p">Paseos por la zona para aprovechar cada día del viaje.</p>
+          <a class="enlace" data-wa="excursion" href="#contacto"><span data-i18n="consultar">Consultar</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </li>
       </ol>
     </div>
@@ -144,11 +148,11 @@
   <section class="seccion seccion--arena" id="destinos" aria-labelledby="destTitulo">
     <div class="wrap">
       <header class="seccion__head">
-        <p class="eyebrow">Destinos</p>
-        <h2 id="destTitulo">Elegí tu playa</h2>
-        <p>Costa sur de Santa Catarina y norte de Florianópolis. Tocá una playa para ver las modalidades y pedir tu cotización.</p>
+        <p class="eyebrow" data-i18n="destinos">Destinos</p>
+        <h2 id="destTitulo" data-i18n="dest.h2">Elegí tu playa</h2>
+        <p data-i18n="dest.p">Costa sur de Santa Catarina y norte de Florianópolis. Tocá una playa para ver las modalidades y pedir tu cotización.</p>
       </header>
-      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por zona"></div>
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por zona" data-i18n-attr="aria-label:aria.filtrar"></div>
       <div class="grid-destinos" id="gridDestinos"></div>
     </div>
   </section>
@@ -157,12 +161,12 @@
   <section class="seccion" id="paquetes" aria-labelledby="paqTitulo">
     <div class="wrap">
       <header class="seccion__head">
-        <p class="eyebrow">Paquetes armados</p>
-        <h2 id="paqTitulo">Tres formas de llegar</h2>
-        <p>Elegí cómo viajar. Alojamiento y traslados se suman a cualquiera de las tres, y las excursiones son opcionales.</p>
+        <p class="eyebrow" data-i18n="paq.eyebrow">Paquetes armados</p>
+        <h2 id="paqTitulo" data-i18n="paq.h2">Tres formas de llegar</h2>
+        <p data-i18n="paq.p">Elegí cómo viajar. Alojamiento y traslados se suman a cualquiera de las tres, y las excursiones son opcionales.</p>
       </header>
       <div class="grid-fichas" id="gridModos"></div>
-      <p class="nota">Paquetes modelo de 7 noches. Las salidas, los cupos y las tarifas se confirman por WhatsApp según la fecha de viaje.</p>
+      <p class="nota" data-i18n="paq.nota">Paquetes modelo de 7 noches. Las salidas, los cupos y las tarifas se confirman por WhatsApp según la fecha de viaje.</p>
     </div>
   </section>
 
@@ -170,19 +174,19 @@
   <section class="seccion seccion--arena" aria-labelledby="porqueSC">
     <div class="wrap">
       <header class="seccion__head seccion__head--centro">
-        <p class="eyebrow">Por qué Santa Catarina</p>
-        <h2 id="porqueSC">Un destino completo para cualquier viaje</h2>
-        <p>Del surf de la costa sur a las aguas calmas del norte de la isla.</p>
+        <p class="eyebrow" data-i18n="sc.eyebrow">Por qué Santa Catarina</p>
+        <h2 id="porqueSC" data-i18n="sc.h2">Un destino completo para cualquier viaje</h2>
+        <p data-i18n="sc.p">Del surf de la costa sur a las aguas calmas del norte de la isla.</p>
       </header>
       <ul class="porque">
-        <li><svg aria-hidden="true"><use href="#i-sun"/></svg>Playas para todos los gustos</li>
-        <li><svg aria-hidden="true"><use href="#i-wave"/></svg>Olas y surf en la costa sur</li>
-        <li><svg aria-hidden="true"><use href="#i-users"/></svg>Aguas calmas para ir en familia</li>
-        <li><svg aria-hidden="true"><use href="#i-compass"/></svg>Ballenas franca de invierno a primavera</li>
-        <li><svg aria-hidden="true"><use href="#i-fork"/></svg>Gastronomía de mar</li>
-        <li><svg aria-hidden="true"><use href="#i-plane"/></svg>Aeropuerto de Florianópolis cerca</li>
-        <li><svg aria-hidden="true"><use href="#i-bus"/></svg>Se llega por tierra desde Argentina</li>
-        <li><svg aria-hidden="true"><use href="#i-tree"/></svg>Naturaleza y senderos</li>
+        <li><svg aria-hidden="true"><use href="#i-sun"/></svg><span data-i18n="sc.l1">Playas para todos los gustos</span></li>
+        <li><svg aria-hidden="true"><use href="#i-wave"/></svg><span data-i18n="sc.l2">Olas y surf en la costa sur</span></li>
+        <li><svg aria-hidden="true"><use href="#i-users"/></svg><span data-i18n="sc.l3">Aguas calmas para ir en familia</span></li>
+        <li><svg aria-hidden="true"><use href="#i-compass"/></svg><span data-i18n="sc.l4">Ballenas franca de invierno a primavera</span></li>
+        <li><svg aria-hidden="true"><use href="#i-fork"/></svg><span data-i18n="sc.l5">Gastronomía de mar</span></li>
+        <li><svg aria-hidden="true"><use href="#i-plane"/></svg><span data-i18n="sc.l6">Aeropuerto de Florianópolis cerca</span></li>
+        <li><svg aria-hidden="true"><use href="#i-bus"/></svg><span data-i18n="sc.l7">Se llega por tierra desde Argentina</span></li>
+        <li><svg aria-hidden="true"><use href="#i-tree"/></svg><span data-i18n="sc.l8">Naturaleza y senderos</span></li>
       </ul>
     </div>
   </section>
@@ -191,10 +195,10 @@
   <section class="seccion seccion--traslado" id="traslados" aria-labelledby="trasTitulo">
     <div class="wrap traslados">
       <div class="traslados__txt">
-        <p class="eyebrow eyebrow--claro">Operación propia</p>
-        <h2 id="trasTitulo">Traslados y excursiones en trafic</h2>
-        <p>Buscamos a tus pasajeros en aeropuertos y terminales de ómnibus y los llevamos a Florianópolis, Imbituba, Garopaba y Paulo Lopes. También armamos excursiones por la zona.</p>
-        <a class="btn btn--sol" data-wa="traslado" href="#contacto">Cotizar un traslado</a>
+        <p class="eyebrow eyebrow--claro" data-i18n="tras.eyebrow">Operación propia</p>
+        <h2 id="trasTitulo" data-i18n="tras.h2">Traslados y excursiones en trafic</h2>
+        <p data-i18n="tras.p">Buscamos a tus pasajeros en aeropuertos y terminales de ómnibus y los llevamos a Florianópolis, Imbituba, Garopaba y Paulo Lopes. También armamos excursiones por la zona.</p>
+        <a class="btn btn--sol" data-wa="traslado" href="#contacto" data-i18n="tras.btn">Cotizar un traslado</a>
       </div>
     </div>
   </section>
@@ -203,30 +207,30 @@
   <section class="seccion" aria-labelledby="porqueFT">
     <div class="wrap">
       <header class="seccion__head seccion__head--centro">
-        <p class="eyebrow">Por qué Fredd Tur</p>
-        <h2 id="porqueFT">Un solo contacto para todo el viaje</h2>
-        <p>Tu pasaje, tu alojamiento y tu traslado con la misma empresa.</p>
+        <p class="eyebrow" data-i18n="ft.eyebrow">Por qué Fredd Tur</p>
+        <h2 id="porqueFT" data-i18n="ft.h2">Un solo contacto para todo el viaje</h2>
+        <p data-i18n="ft.p">Tu pasaje, tu alojamiento y tu traslado con la misma empresa.</p>
       </header>
       <ul class="valores">
         <li>
           <svg aria-hidden="true"><use href="#i-pin"/></svg>
-          <h3>Operación en destino</h3>
-          <p>Nuestras trafics te esperan en el aeropuerto o la terminal. Trabajamos en la zona desde 2007.</p>
+          <h3 data-i18n="val1.h3">Operación en destino</h3>
+          <p data-i18n="val1.p">Nuestras trafics te esperan en el aeropuerto o la terminal. Trabajamos en la zona desde 2007.</p>
         </li>
         <li>
           <svg aria-hidden="true"><use href="#i-bed"/></svg>
-          <h3>Posadas y hoteles aliados</h3>
-          <p>Armamos tu paquete con alojamientos de la región con los que ya trabajamos.</p>
+          <h3 data-i18n="val2.h3">Posadas y hoteles aliados</h3>
+          <p data-i18n="val2.p">Armamos tu paquete con alojamientos de la región con los que ya trabajamos.</p>
         </li>
         <li>
           <svg aria-hidden="true"><use href="#i-plane"/></svg>
-          <h3>Aéreo y terrestre</h3>
-          <p>Avión, bus o los dos: te proponemos la combinación que mejor te queda.</p>
+          <h3 data-i18n="val3.h3">Aéreo y terrestre</h3>
+          <p data-i18n="val3.p">Avión, bus o los dos: te proponemos la combinación que mejor te queda.</p>
         </li>
         <li>
           <svg aria-hidden="true"><use href="#i-wa"/></svg>
-          <h3>Atención por WhatsApp</h3>
-          <p>Escribinos y te pasamos opciones y tarifas para tus fechas.</p>
+          <h3 data-i18n="atencion_wa">Atención por WhatsApp</h3>
+          <p data-i18n="val4.p">Escribinos y te pasamos opciones y tarifas para tus fechas.</p>
         </li>
       </ul>
     </div>
@@ -236,25 +240,25 @@
   <section class="seccion seccion--arena" aria-labelledby="realTitulo">
     <div class="wrap confianza">
       <div>
-        <p class="eyebrow">Una empresa real</p>
-        <h2 id="realTitulo">Con sede en Praia do Rosa</h2>
-        <p>Si vas a viajar, queremos que sepas con quién tratás.</p>
+        <p class="eyebrow" data-i18n="real.eyebrow">Una empresa real</p>
+        <h2 id="realTitulo" data-i18n="real.h2">Con sede en Praia do Rosa</h2>
+        <p data-i18n="real.p">Si vas a viajar, queremos que sepas con quién tratás.</p>
       </div>
       <ul class="confianza__lista">
-        <li><svg aria-hidden="true"><use href="#i-shield"/></svg><span><b>Empresa registrada</b><br><span id="cfRazon"></span></span></li>
-        <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span><b>Sede en destino</b><br><span id="cfSede"></span></span></li>
-        <li><svg aria-hidden="true"><use href="#i-wa"/></svg><span><b>Contacto directo</b><br>Por WhatsApp o mail, con personas de la zona.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-shield"/></svg><span><b data-i18n="real.l1">Empresa registrada</b><br><span id="cfRazon"></span></span></li>
+        <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span><b data-i18n="real.l2">Sede en destino</b><br><span id="cfSede"></span></span></li>
+        <li><svg aria-hidden="true"><use href="#i-wa"/></svg><span><b data-i18n="real.l3">Contacto directo</b><br><span data-i18n="real.l3t">Por WhatsApp o mail, con personas de la zona.</span></span></li>
       </ul>
     </div>
   </section>
 
   <!-- SOBRE NOSOTROS -->
   <section class="sobre" aria-labelledby="sobreTitulo">
-    <div class="sobre__foto" role="img" aria-label="Costa de Santa Catarina"></div>
+    <div class="sobre__foto" role="img" aria-label="Costa de Santa Catarina" data-i18n-attr="aria-label:aria.costa"></div>
     <div class="sobre__txt">
-      <p class="eyebrow">Vivimos lo que vendemos</p>
-      <h2 id="sobreTitulo">Tu amigo de Praia do Rosa</h2>
-      <p>Praia do Rosa es nuestra casa. Armamos tu viaje con el conocimiento de quienes viven y trabajan en la costa sur de Santa Catarina, y te acompañamos desde que llegás hasta que te vas.</p>
+      <p class="eyebrow" data-i18n="sobre.eyebrow">Vivimos lo que vendemos</p>
+      <h2 id="sobreTitulo" data-i18n="sobre.h2">Tu amigo de Praia do Rosa</h2>
+      <p data-i18n="sobre.p">Praia do Rosa es nuestra casa. Armamos tu viaje con el conocimiento de quienes viven y trabajan en la costa sur de Santa Catarina, y te acompañamos desde que llegás hasta que te vas.</p>
     </div>
   </section>
 
@@ -262,33 +266,33 @@
   <section class="seccion" id="preguntas" aria-labelledby="faqTitulo">
     <div class="wrap faq">
       <header class="seccion__head">
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2 id="faqTitulo">¿Dudas? Te respondemos</h2>
+        <p class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</p>
+        <h2 id="faqTitulo" data-i18n="faq.h2">¿Dudas? Te respondemos</h2>
       </header>
       <div class="faq__lista">
         <details>
-          <summary>¿Qué incluyen los paquetes?</summary>
-          <p>Cada paquete combina el pasaje (aéreo, bus o los dos), el traslado en trafic y el alojamiento. Las excursiones se pueden sumar. El detalle exacto se confirma en la cotización.</p>
+          <summary data-i18n="faq1.q">¿Qué incluyen los paquetes?</summary>
+          <p data-i18n="faq1.a">Cada paquete combina el pasaje (aéreo, bus o los dos), el traslado en trafic y el alojamiento. Las excursiones se pueden sumar. El detalle exacto se confirma en la cotización.</p>
         </details>
         <details>
-          <summary>¿Cómo se llega a Santa Catarina?</summary>
-          <p>En avión hasta el aeropuerto de Florianópolis, en bus desde Argentina o combinando los dos. Te armamos la opción según tu ciudad de salida y tus fechas.</p>
+          <summary data-i18n="faq2.q">¿Cómo se llega a Santa Catarina?</summary>
+          <p data-i18n="faq2.a">En avión hasta el aeropuerto de Florianópolis, en bus desde Argentina o combinando los dos. Te armamos la opción según tu ciudad de salida y tus fechas.</p>
         </details>
         <details>
-          <summary>¿Puedo armar mi propio paquete?</summary>
-          <p>Sí. Contanos qué necesitás (pasaje, traslado, alojamiento o excursiones) y cotizamos lo que falta.</p>
+          <summary data-i18n="faq3.q">¿Puedo armar mi propio paquete?</summary>
+          <p data-i18n="faq3.a">Sí. Contanos qué necesitás (pasaje, traslado, alojamiento o excursiones) y cotizamos lo que falta.</p>
         </details>
         <details>
-          <summary>¿Cómo se paga?</summary>
-          <p>Las formas de pago se coordinan por WhatsApp al momento de cotizar.</p>
+          <summary data-i18n="faq4.q">¿Cómo se paga?</summary>
+          <p data-i18n="faq4.a">Las formas de pago se coordinan por WhatsApp al momento de cotizar.</p>
         </details>
         <details>
-          <summary>¿Qué pasa si tengo que cambiar o cancelar?</summary>
-          <p>Las condiciones dependen de cada servicio (pasaje, alojamiento, traslado) y se informan al cotizar.</p>
+          <summary data-i18n="faq5.q">¿Qué pasa si tengo que cambiar o cancelar?</summary>
+          <p data-i18n="faq5.a">Las condiciones dependen de cada servicio (pasaje, alojamiento, traslado) y se informan al cotizar.</p>
         </details>
         <details>
-          <summary>¿Trabajan con agencias de viajes?</summary>
-          <p>Sí. Escribinos por WhatsApp y coordinamos.</p>
+          <summary data-i18n="faq6.q">¿Trabajan con agencias de viajes?</summary>
+          <p data-i18n="faq6.a">Sí. Escribinos por WhatsApp y coordinamos.</p>
         </details>
       </div>
     </div>
@@ -297,10 +301,10 @@
   <!-- CIERRE -->
   <section class="cta" aria-labelledby="ctaTitulo">
     <div class="wrap cta__in">
-      <p class="eyebrow eyebrow--claro">¿Listo para Santa Catarina?</p>
-      <h2 id="ctaTitulo">Tu viaje empieza con un hola</h2>
-      <p>Contanos cuándo viajás y con quién. Nosotros armamos el resto.</p>
-      <a class="btn btn--wa btn--grande" data-wa="general" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg>Escribir por WhatsApp</a>
+      <p class="eyebrow eyebrow--claro" data-i18n="cta.eyebrow">¿Listo para Santa Catarina?</p>
+      <h2 id="ctaTitulo" data-i18n="cta.h2">Tu viaje empieza con un hola</h2>
+      <p data-i18n="cta.p">Contanos cuándo viajás y con quién. Nosotros armamos el resto.</p>
+      <a class="btn btn--wa btn--grande" data-wa="general" href="#contacto"><svg aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.btn">Escribir por WhatsApp</span></a>
     </div>
   </section>
 
@@ -310,18 +314,18 @@
 <footer class="pie" id="contacto">
   <div class="wrap pie__in">
     <div class="pie__col">
-      <a class="brand brand--claro" href="#inicio" aria-label="Fredd Tur, volver arriba">
+      <a class="brand brand--claro" href="#inicio" aria-label="Fredd Tur, volver arriba" data-i18n-attr="aria-label:aria.arriba">
         <svg class="brand__mark" aria-hidden="true"><use href="#logo-mark"/></svg>
         <span class="brand__txt"><b>FREDD <i>•</i> TUR</b></span>
       </a>
       <p class="pie__razon" id="pieRazon"></p>
     </div>
     <div class="pie__col">
-      <h2 class="pie__tit">Contacto</h2>
+      <h2 class="pie__tit" data-i18n="pie.contacto">Contacto</h2>
       <ul class="pie__lista" id="pieContacto"></ul>
     </div>
     <div class="pie__col">
-      <h2 class="pie__tit">Seguinos</h2>
+      <h2 class="pie__tit" data-i18n="pie.redes">Seguinos</h2>
       <ul class="pie__lista" id="pieRedes"></ul>
     </div>
   </div>
@@ -331,6 +335,7 @@
 <!-- DETALLE DE DESTINO -->
 <dialog class="modal" id="detalle" aria-labelledby="dTitulo"></dialog>
 
+<script src="i18n.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>
